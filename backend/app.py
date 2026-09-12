@@ -169,15 +169,14 @@ def handler(event: dict[str, Any], context: Any) -> dict[str, Any]:
         status = 500
         failure_category = "INTERNAL_ERROR"
         logger.error(
-            json.dumps(
-                {
-                    "requestId": request_id,
-                    "operation": operation,
-                    "payloadType": payload_type,
-                    "payloadBytes": payload_bytes,
-                    "failureCategory": failure_category,
-                }
-            )
+            "payload analysis failed",
+            extra={
+                "requestId": request_id,
+                "operation": operation,
+                "payloadType": payload_type,
+                "payloadBytes": payload_bytes,
+                "failureCategory": failure_category,
+            },
         )
         response = {
             "success": False,
@@ -185,17 +184,16 @@ def handler(event: dict[str, Any], context: Any) -> dict[str, Any]:
         }
 
     logger.info(
-        json.dumps(
-            {
-                "requestId": request_id,
-                "operation": operation,
-                "payloadType": payload_type,
-                "payloadBytes": payload_bytes,
-                "durationMs": round((time.perf_counter() - started) * 1000, 2),
-                "success": response["success"],
-                **({"failureCategory": failure_category} if failure_category else {}),
-            }
-        )
+        "payload analysis completed",
+        extra={
+            "requestId": request_id,
+            "operation": operation,
+            "payloadType": payload_type,
+            "payloadBytes": payload_bytes,
+            "durationMs": round((time.perf_counter() - started) * 1000, 2),
+            "success": response["success"],
+            **({"failureCategory": failure_category} if failure_category else {}),
+        },
     )
     return {
         "statusCode": status,

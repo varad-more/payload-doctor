@@ -84,7 +84,12 @@ def test_handler_returns_safe_json_error_and_logs_metadata_only(caplog):
     assert body["error"]["code"] == "INVALID_JSON"
     assert body["error"]["line"] == 1
     assert secret not in caplog.text
-    assert '"payloadBytes"' in caplog.text
+    completed = next(record for record in caplog.records if record.message == "payload analysis completed")
+    assert completed.operation == "diagnose"
+    assert completed.payloadType == "generic"
+    assert completed.payloadBytes == len(f'{{"secret":"{secret}",}}'.encode("utf-8"))
+    assert completed.success is False
+    assert completed.failureCategory == "INVALID_JSON"
 
 
 def test_handler_internal_error_does_not_log_payload(monkeypatch, caplog):
