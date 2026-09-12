@@ -5,6 +5,8 @@
 [![CI](https://github.com/varad-more/payload-doctor/actions/workflows/ci.yml/badge.svg)](https://github.com/varad-more/payload-doctor/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-79d49a.svg)](LICENSE)
 
+**[Open the live application →](https://main.d3hgtl2mzv6vqq.amplifyapp.com)**
+
 Payload Doctor is a small serverless developer tool for validating, diagnosing, formatting, minifying, and conservatively repairing JSON. Unlike a generic formatter, it also checks the useful structure of API Gateway REST API proxy v1.0, SQS, SNS, and EventBridge events. Analysis runs in AWS Lambda; the browser is only the editor and result viewer.
 
 ![Payload Doctor interface](docs/screenshots/payload-doctor.png)

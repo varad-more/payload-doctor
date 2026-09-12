@@ -15,7 +15,6 @@ Globals:
       - x86_64
     MemorySize: 256
     Timeout: 10
-    Tracing: PassThrough
 
 Resources:
   PayloadApi:
