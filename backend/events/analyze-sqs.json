@@ -1,0 +1,10 @@
+{
+  "version": "2.0",
+  "routeKey": "POST /analyze",
+  "rawPath": "/analyze",
+  "requestContext": {
+    "requestId": "local-demo"
+  },
+  "body": "{\"operation\":\"diagnose\",\"payloadType\":\"sqs\",\"content\":\"{\\\"Records\\\":[{\\\"messageId\\\":\\\"abc-123\\\",\\\"body\\\":{\\\"orderId\\\":\\\"ORD-42\\\"},\\\"eventSource\\\":\\\"aws:sqs\\\",\\\"awsRegion\\\":\\\"us-east-1\\\"}]}\",\"schema\":null}",
+  "isBase64Encoded": false
+}

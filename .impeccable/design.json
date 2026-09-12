@@ -1,0 +1,156 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-12T11:41:48.276Z",
+  "title": "Design System: Payload Doctor",
+  "extensions": {
+    "colorMeta": {
+      "canvas": { "role": "neutral", "displayName": "Canvas Charcoal", "canonical": "#0c1012", "tonalRamp": ["#06090a", "#0c1012", "#172023", "#2b383b", "#506063", "#7d8b8d", "#b6c0c1", "#edf1f1"] },
+      "panel": { "role": "neutral", "displayName": "Review Charcoal", "canonical": "#111719", "tonalRamp": ["#080b0c", "#111719", "#1d272a", "#344245", "#59696c", "#839194", "#bac3c5", "#eef1f2"] },
+      "panel-raised": { "role": "neutral", "displayName": "Raised Charcoal", "canonical": "#161d20", "tonalRamp": ["#0a0d0e", "#161d20", "#263135", "#3e4d51", "#627175", "#8a979a", "#bec6c8", "#eff2f3"] },
+      "panel-quiet": { "role": "neutral", "displayName": "Quiet Charcoal", "canonical": "#0f1416", "tonalRamp": ["#07090a", "#0f1416", "#1b2427", "#313f42", "#566669", "#818f91", "#b9c2c4", "#eef1f2"] },
+      "line": { "role": "neutral", "displayName": "Ruled Line", "canonical": "#2a3336", "tonalRamp": ["#0c1011", "#1a2224", "#2a3336", "#465255", "#687578", "#8f9a9c", "#c1c8c9", "#f0f2f2"] },
+      "line-strong": { "role": "neutral", "displayName": "Strong Ruled Line", "canonical": "#3b474a", "tonalRamp": ["#101516", "#252e30", "#3b474a", "#576467", "#758184", "#98a2a4", "#c7cdce", "#f1f3f3"] },
+      "ink": { "role": "neutral", "displayName": "Paper Ink", "canonical": "#eef2ee", "tonalRamp": ["#171a17", "#343934", "#555c56", "#78817a", "#9ca69e", "#bec7c0", "#dce3dd", "#eef2ee"] },
+      "muted": { "role": "neutral", "displayName": "Muted Ink", "canonical": "#9ba9a5", "tonalRamp": ["#111716", "#26312e", "#3f4e4a", "#5d6e69", "#7d8f89", "#9ba9a5", "#c8d0cd", "#f0f3f2"] },
+      "faint": { "role": "neutral", "displayName": "Faint Ink", "canonical": "#84938e", "tonalRamp": ["#0f1513", "#222e2b", "#384945", "#526661", "#6d837c", "#84938e", "#bec9c5", "#eef2f1"] },
+      "diagnostic-green": { "role": "primary", "displayName": "Diagnostic Green", "canonical": "#79d49a", "tonalRamp": ["#092216", "#123c27", "#1f5b3b", "#347b51", "#519e6d", "#79d49a", "#b1e8c4", "#edf9f1"] },
+      "diagnostic-green-hover": { "role": "primary", "displayName": "Diagnostic Green Hover", "canonical": "#99e2b2", "tonalRamp": ["#0d2115", "#1b3c29", "#2d5b3e", "#467c57", "#65a174", "#99e2b2", "#c4efd2", "#f0faf3"] },
+      "diagnostic-green-dark": { "role": "primary", "displayName": "Diagnostic Green Field", "canonical": "#183828", "tonalRamp": ["#07160e", "#10271b", "#183828", "#2e5940", "#4c7d61", "#75a587", "#acd1bb", "#ebf5ee"] },
+      "warning-amber": { "role": "secondary", "displayName": "Warning Amber", "canonical": "#e6b85c", "tonalRamp": ["#251a05", "#47340d", "#6c5018", "#946e27", "#bd903b", "#e6b85c", "#f2d89c", "#fcf5e7"] },
+      "warning-amber-dark": { "role": "secondary", "displayName": "Warning Amber Field", "canonical": "#3b2d13", "tonalRamp": ["#150f04", "#291e0a", "#3b2d13", "#604a22", "#846a38", "#aa8d58", "#d6c29a", "#f7f1e5"] },
+      "error-coral": { "role": "tertiary", "displayName": "Error Coral", "canonical": "#ff8e78", "tonalRamp": ["#2c0e09", "#531d15", "#7d3025", "#aa483a", "#d86554", "#ff8e78", "#ffc2b6", "#fff0ed"] },
+      "error-coral-dark": { "role": "tertiary", "displayName": "Error Coral Field", "canonical": "#40231f", "tonalRamp": ["#160906", "#2c1612", "#40231f", "#653b34", "#8a584f", "#b17c70", "#dbb4ad", "#f9ece9"] },
+      "focus-mint": { "role": "primary", "displayName": "Focus Mint", "canonical": "#b7e8c8", "tonalRamp": ["#10251a", "#21432f", "#386449", "#558866", "#79ac86", "#a0d1b1", "#ccebd7", "#f0faf4"] },
+      "accent-ink": { "role": "neutral", "displayName": "Accent Ink", "canonical": "#07120b", "tonalRamp": ["#040906", "#07120b", "#152a1c", "#2a4634", "#4b6854", "#748e7c", "#afc2b4", "#edf3ef"] },
+      "code-ink": { "role": "neutral", "displayName": "Code Ink", "canonical": "#e2e8e4", "tonalRamp": ["#151916", "#303632", "#505752", "#727b75", "#959f98", "#b8c1bb", "#d4dcd6", "#f0f3f1"] },
+      "error-ink": { "role": "tertiary", "displayName": "Error Ink", "canonical": "#ffd3cb", "tonalRamp": ["#2b100b", "#52221b", "#7b392e", "#a85446", "#d47463", "#f29c8b", "#ffd3cb", "#fff1ee"] },
+      "shadow-ambient": { "role": "neutral", "displayName": "Ambient Shadow", "canonical": "rgba(0, 0, 0, 0.3)", "tonalRamp": ["rgba(0,0,0,.9)", "rgba(0,0,0,.75)", "rgba(0,0,0,.6)", "rgba(0,0,0,.45)", "rgba(0,0,0,.3)", "rgba(0,0,0,.2)", "rgba(0,0,0,.1)", "rgba(0,0,0,.05)"] },
+      "shadow-contact": { "role": "neutral", "displayName": "Contact Shadow", "canonical": "rgba(0, 0, 0, 0.22)", "tonalRamp": ["rgba(0,0,0,.9)", "rgba(0,0,0,.7)", "rgba(0,0,0,.5)", "rgba(0,0,0,.35)", "rgba(0,0,0,.22)", "rgba(0,0,0,.15)", "rgba(0,0,0,.08)", "rgba(0,0,0,.03)"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Product title only; tightly tracked and balanced." },
+      "headline": { "displayName": "Headline", "purpose": "Supporting page-section titles." },
+      "body": { "displayName": "Body", "purpose": "Explanations and supporting copy." },
+      "label": { "displayName": "Machine Label", "purpose": "Controls, statuses, metadata, limits, and compact actions." },
+      "code": { "displayName": "Code", "purpose": "Payload input, excerpts, and output." },
+      "path": { "displayName": "Path", "purpose": "Payload paths inside finding rows." },
+      "badge": { "displayName": "Badge", "purpose": "Compact error and warning severity chips." }
+    },
+    "shadows": [
+      { "name": "workbench-lift", "value": "0 22px 60px rgba(0, 0, 0, 0.3), 0 3px 12px rgba(0, 0, 0, 0.22)", "purpose": "Persistent elevation for the complete review workbench only." },
+      { "name": "editor-focus-inset", "value": "inset 0 0 0 1px var(--focus)", "purpose": "Visible editor focus without changing ruled geometry." }
+    ],
+    "motion": [
+      { "name": "control-response", "value": "140ms ease-out", "purpose": "Button background, border, color, and active-position transitions." },
+      { "name": "analysis-scan", "value": "700ms linear infinite", "purpose": "The examining-state activity mark; reduced to one near-instant iteration under reduced motion." }
+    ],
+    "breakpoints": [
+      { "name": "compact-desktop", "value": "980px" },
+      { "name": "stacked-workbench", "value": "780px" },
+      { "name": "narrow-mobile", "value": "480px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Diagnose Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The principal action for running payload diagnosis.",
+      "html": "<button class=\"ds-btn-primary\" type=\"button\">DIAGNOSE</button>",
+      "css": ".ds-btn-primary { min-height: 42px; padding: 0 16px; border: 1px solid var(--green); border-radius: 6px; color: #07120b; background: var(--green); font: 720 0.75rem/1 Archivo Variable, Segoe UI, sans-serif; letter-spacing: .04em; cursor: pointer; transition: background 140ms ease-out, transform 140ms ease-out; } .ds-btn-primary:hover { background: #99e2b2; } .ds-btn-primary:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; } .ds-btn-primary:active { transform: translateY(1px); }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "The neutral workbench action for formatting, minifying, repair, and examples.",
+      "html": "<button class=\"ds-btn-secondary\" type=\"button\">FORMAT</button>",
+      "css": ".ds-btn-secondary { min-height: 42px; padding: 0 15px; border: 1px solid var(--line-strong); border-radius: 6px; color: var(--ink); background: var(--panel-raised); font: 720 0.75rem/1 Archivo Variable, Segoe UI, sans-serif; letter-spacing: .04em; cursor: pointer; transition: background 140ms ease-out, border-color 140ms ease-out, transform 140ms ease-out; } .ds-btn-secondary:hover { border-color: #697875; background: #20282b; } .ds-btn-secondary:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; } .ds-btn-secondary:active { transform: translateY(1px); }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "A quiet action for clearing input or moving output back into the editor.",
+      "html": "<button class=\"ds-btn-ghost\" type=\"button\">Clear input</button>",
+      "css": ".ds-btn-ghost { min-height: 42px; padding: 0 15px; border: 1px solid transparent; border-radius: 6px; color: var(--muted); background: transparent; font: 400 .82rem/1 Archivo Variable, Segoe UI, sans-serif; cursor: pointer; transition: color 140ms ease-out, background 140ms ease-out; } .ds-btn-ghost:hover { color: var(--ink); background: #20282b; } .ds-btn-ghost:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; } .ds-btn-ghost:active { transform: translateY(1px); }"
+    },
+    {
+      "name": "Payload Type Select",
+      "kind": "input",
+      "description": "The contract selector above the input and diagnosis panes.",
+      "html": "<label class=\"ds-select-label\"><span>PAYLOAD TYPE</span><select class=\"ds-select\"><option>Generic JSON</option><option>Amazon SQS event</option></select></label>",
+      "css": ".ds-select-label { display: grid; gap: 7px; color: var(--faint); font: 400 .68rem/1 SFMono-Regular, Consolas, monospace; letter-spacing: .055em; } .ds-select { min-height: 42px; width: 310px; padding: 0 36px 0 12px; border: 1px solid var(--line-strong); border-radius: 6px; color: var(--ink); background: #171e20; font-family: Archivo Variable, Segoe UI, sans-serif; } .ds-select:hover { border-color: #697875; } .ds-select:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }"
+    },
+    {
+      "name": "Payload Editor",
+      "kind": "input",
+      "refersTo": "text-field",
+      "description": "The square-edged code field with a ruled line-number gutter.",
+      "html": "<div class=\"ds-editor\"><pre aria-hidden=\"true\">1\n2\n3</pre><textarea aria-label=\"JSON payload input\" spellcheck=\"false\">{\n  \"ok\": true\n}</textarea></div>",
+      "css": ".ds-editor { height: 190px; display: grid; grid-template-columns: 54px minmax(0,1fr); background: #0e1315; } .ds-editor pre, .ds-editor textarea { margin: 0; padding-top: 18px; padding-bottom: 18px; border: 0; border-radius: 0; font: 400 .84rem/1.66 SFMono-Regular, Consolas, monospace; } .ds-editor pre { padding-right: 13px; color: #75837e; background: #101719; text-align: right; user-select: none; } .ds-editor textarea { resize: none; padding-right: 20px; padding-left: 19px; color: #dfe9e2; background: #0e1315; caret-color: var(--green); } .ds-editor textarea:hover { background: #0e1315; } .ds-editor textarea:focus-visible { outline: none; box-shadow: inset 0 0 0 1px var(--focus); }"
+    },
+    {
+      "name": "Diagnostic Status Row",
+      "kind": "custom",
+      "description": "A ruled check paired with a compact semantic verdict.",
+      "html": "<div class=\"ds-status-row\"><span>JSON syntax</span><span class=\"ds-status ds-status-pass\"><i></i>PASS</span></div>",
+      "css": ".ds-status-row { min-height: 44px; display: flex; align-items: center; justify-content: space-between; gap: 16px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); color: #cbd4cf; background: var(--panel); font: 400 .82rem/1 Archivo Variable, Segoe UI, sans-serif; } .ds-status { display: inline-flex; align-items: center; gap: 7px; color: var(--green); font: 700 .66rem/1 SFMono-Regular, Consolas, monospace; letter-spacing: .06em; } .ds-status i { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }"
+    },
+    {
+      "name": "Finding Severity Badge",
+      "kind": "chip",
+      "description": "A severity label paired with the exact payload path.",
+      "html": "<div class=\"ds-finding-head\"><span class=\"ds-finding-error\">ERROR</span><code>$.Records[0].body</code></div>",
+      "css": ".ds-finding-head { display: flex; align-items: center; gap: 10px; color: #e2e8e4; background: var(--panel); font-family: SFMono-Regular, Consolas, monospace; } .ds-finding-error { padding: 3px 5px; border-radius: 3px; color: #ffd3cb; background: var(--coral-dark); font-size: .58rem; font-weight: 750; letter-spacing: .06em; } .ds-finding-head code { overflow: hidden; color: #e2e8e4; font-size: .73rem; text-overflow: ellipsis; }"
+    },
+    {
+      "name": "Review Workbench",
+      "kind": "card",
+      "refersTo": "workbench",
+      "description": "The single elevated container joining toolbar, A/B panes, and operations.",
+      "html": "<section class=\"ds-workbench\"><header>PAYLOAD TYPE · GENERIC JSON</header><div><span>A · INPUT</span><span>B · OUTPUT / DIAGNOSIS</span></div><footer>DIAGNOSE · FORMAT · MINIFY · REPAIR</footer></section>",
+      "css": ".ds-workbench { overflow: hidden; border: 1px solid var(--line-strong); border-radius: 11px; color: var(--ink); background: var(--panel); box-shadow: 0 22px 60px rgba(0,0,0,.3), 0 3px 12px rgba(0,0,0,.22); font: 700 .72rem/1.4 SFMono-Regular, Consolas, monospace; letter-spacing: .055em; } .ds-workbench header, .ds-workbench footer { padding: 17px; background: var(--panel-quiet); } .ds-workbench header { border-bottom: 1px solid var(--line); color: var(--faint); } .ds-workbench div { display: grid; grid-template-columns: 1fr 1fr; min-height: 110px; } .ds-workbench div span { padding: 17px; border-right: 1px solid var(--line-strong); } .ds-workbench div span:last-child { border-right: 0; } .ds-workbench footer { border-top: 1px solid var(--line-strong); color: var(--green); }"
+    },
+    {
+      "name": "Masthead Navigation",
+      "kind": "nav",
+      "description": "Sparse brand navigation with muted text-link states.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-brand\" href=\"#\"><svg viewBox=\"0 0 36 36\" aria-hidden=\"true\"><path d=\"M11 7H7v8M25 7h4v8M11 29H7v-8M25 29h4v-8M18 11v14M11 18h14\"/><circle cx=\"18\" cy=\"18\" r=\"14.5\"/></svg>PAYLOAD DOCTOR</a><span><a href=\"#\">GitHub</a><a href=\"#\">About</a></span></nav>",
+      "css": ".ds-nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); color: var(--muted); background: var(--canvas); font: 400 .88rem/1 Archivo Variable, Segoe UI, sans-serif; } .ds-nav a { color: inherit; text-decoration: none; } .ds-nav > span { display: flex; gap: 28px; } .ds-nav > span a:hover { color: var(--ink); } .ds-nav a:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; } .ds-brand { display: inline-flex; align-items: center; gap: 11px; color: var(--ink) !important; font-size: .86rem; font-weight: 700; letter-spacing: .09em; } .ds-brand svg { width: 31px; height: 31px; fill: none; stroke: var(--green); stroke-width: 1.6; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Diagnostic Review Sheet",
+    "overview": "Payload Doctor treats payload analysis as a focused code review: an ownable charcoal work surface, precise ruled divisions, and compact diagnostic annotations. The interface is dense but calm, with the input and verdict held in equal visual authority instead of broken into a generic dashboard of cards.\n\nThe visual language is factual and instrument-like. Paper-white type and quiet blue-charcoal layers carry most of the screen; green, amber, and coral appear only when an action or finding needs a clear verdict. Archivo Variable gives the shell a contemporary editorial voice, while the system monospace stack makes payloads, measurements, paths, and labels read like review notation.",
+    "keyCharacteristics": [
+      "Equal split input and diagnosis panes on desktop, collapsing into one review flow on narrow screens.",
+      "Thin ruled borders, restrained tonal layering, and a single elevated workbench.",
+      "Diagnostic color reserved for actions, status, findings, focus, and selection.",
+      "Compact uppercase labels paired with readable mixed-case explanations and monospaced payload data.",
+      "Direct state transitions: ready, examining, service error, findings, repairs, and copyable output."
+    ],
+    "rules": [
+      { "name": "The Verdict Color Rule", "body": "Green, amber, and coral communicate action or diagnostic meaning; they are not decorative accents.", "section": "colors" },
+      { "name": "The Charcoal Ladder Rule", "body": "Separate regions with the four established charcoal surfaces and ruled borders before introducing another surface color.", "section": "colors" },
+      { "name": "The Machine Voice Rule", "body": "Use monospace only when the text is a value, location, measurement, state, or direct command.", "section": "typography" },
+      { "name": "The Review Order Rule", "body": "Responsive layouts preserve input before diagnosis and operations after both; the workflow order never changes.", "section": "layout" },
+      { "name": "The One Lift Rule", "body": "The workbench is the only persistently shadowed surface; all internal sections remain ruled and flat.", "section": "elevation" },
+      { "name": "The Nested Radius Rule", "body": "Corners tighten as components move inside the workbench; do not give inner reports card-sized rounding.", "section": "shapes" }
+    ],
+    "dos": [
+      "**Do** keep the editor and diagnosis equally prominent on desktop and in one logical sequence on mobile.",
+      "**Do** use ruled lines and charcoal tonal steps to organize dense diagnostic information.",
+      "**Do** reserve semantic green, amber, and coral for actions and verdicts.",
+      "**Do** preserve visible focus, 42px minimum controls, semantic status regions, and reduced-motion behavior.",
+      "**Do** keep paths, metrics, byte limits, statuses, and code in the monospace voice."
+    ],
+    "donts": [
+      "**Don't** convert the review sheet into a dashboard of floating cards.",
+      "**Don't** use diagnostic colors as general decoration or mix their semantic roles.",
+      "**Don't** add persistent shadows to inner sections, findings, metrics, or controls.",
+      "**Don't** round the code editor or individual report rows into pills or tiles.",
+      "**Don't** hide the primary Diagnose action below the editor in the first viewport."
+    ]
+  }
+}
