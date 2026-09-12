@@ -81,7 +81,7 @@ def test_unexpected_additional_field_does_not_fail(payload_type):
         ("sqs", {}, "$.Records"),
         ("sns", {"Records": [{}]}, "$.Records[0].EventSource"),
         ("eventbridge", {"version": "0"}, "$.id"),
-        ("api_gateway", {}, "$"),
+        ("api_gateway", {}, "$.httpMethod"),
     ],
 )
 def test_missing_important_field_fails(payload_type, event, path):
@@ -179,11 +179,72 @@ def test_api_gateway_nullable_fields_pass():
         headers=None,
         multiValueHeaders=None,
         queryStringParameters=None,
+        multiValueQueryStringParameters=None,
         pathParameters=None,
         stageVariables=None,
         body=None,
     )
     assert validate_payload("api_gateway", event) == ([], [])
+
+
+def test_api_gateway_version_marker_does_not_replace_required_v1_fields():
+    errors, warnings = validate_payload("api_gateway", {"version": "1.0"})
+
+    assert warnings == []
+    assert {(error["path"], error["code"], error["message"]) for error in errors} == {
+        (
+            "$.httpMethod",
+            "MISSING_FIELD",
+            "API Gateway REST proxy event must include httpMethod.",
+        ),
+        (
+            "$.requestContext",
+            "MISSING_FIELD",
+            "API Gateway REST proxy event must include requestContext.",
+        ),
+    }
+
+
+@pytest.mark.parametrize(
+    ("event", "missing_path"),
+    [
+        ({"httpMethod": "GET"}, "$.requestContext"),
+        ({"requestContext": {}}, "$.httpMethod"),
+    ],
+)
+def test_api_gateway_requires_both_v1_fields(event, missing_path):
+    errors, warnings = validate_payload("api_gateway", event)
+
+    assert warnings == []
+    assert [(error["path"], error["code"]) for error in errors] == [(missing_path, "MISSING_FIELD")]
+
+
+@pytest.mark.parametrize(
+    ("event", "wrong_path"),
+    [
+        ({"httpMethod": 123, "requestContext": {}}, "$.httpMethod"),
+        ({"httpMethod": "GET", "requestContext": "invalid"}, "$.requestContext"),
+    ],
+)
+def test_api_gateway_required_v1_field_types(event, wrong_path):
+    errors, warnings = validate_payload("api_gateway", event)
+
+    assert warnings == []
+    assert len(errors) == 1
+    assert errors[0]["path"] == wrong_path
+    assert errors[0]["code"] == "WRONG_TYPE"
+
+
+def test_api_gateway_multi_value_query_parameters_type_is_validated():
+    event = copy.deepcopy(VALID_EVENTS["api_gateway"])
+    event["multiValueQueryStringParameters"] = []
+
+    errors, warnings = validate_payload("api_gateway", event)
+
+    assert warnings == []
+    assert [(error["path"], error["code"]) for error in errors] == [
+        ("$.multiValueQueryStringParameters", "WRONG_TYPE")
+    ]
 
 
 def test_api_gateway_http_api_v2_is_not_misrepresented_as_supported():

@@ -5,9 +5,9 @@
 [![CI](https://github.com/varad-more/payload-doctor/actions/workflows/ci.yml/badge.svg)](https://github.com/varad-more/payload-doctor/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-79d49a.svg)](LICENSE)
 
-**[Open the live application →](https://main.d3hgtl2mzv6vqq.amplifyapp.com)**
+[Open the live application](https://main.d3hgtl2mzv6vqq.amplifyapp.com)
 
-Payload Doctor is a small serverless developer tool for validating, diagnosing, formatting, minifying, and conservatively repairing JSON. Unlike a generic formatter, it also checks the useful structure of API Gateway REST API proxy v1.0, SQS, SNS, and EventBridge events. Analysis runs in AWS Lambda; the browser is only the editor and result viewer.
+Payload Doctor validates, diagnoses, formats, minifies, and conservatively repairs JSON. It also checks the structure of API Gateway REST API proxy v1.0, SQS, SNS, and EventBridge events. AWS Lambda performs the analysis; the browser provides the editor and result view.
 
 ![Payload Doctor interface](docs/screenshots/payload-doctor.png)
 
@@ -34,7 +34,7 @@ flowchart LR
     L -->|Structured metadata only| C[Amazon CloudWatch<br/>Logs]
 ```
 
-AWS SAM provisions the HTTP API, Lambda function, least-privilege basic logging permissions, API access log group, throttling, timeout, and configurable CORS allowlist. See [the architecture notes](docs/architecture.md) for request flow and security boundaries.
+AWS SAM provisions the HTTP API and Lambda function with basic logging permissions. The template also configures API access logs, throttling, the Lambda timeout, and a CORS allowlist. See [the architecture notes](docs/architecture.md) for request flow and security boundaries.
 
 ## 30-second demo
 
@@ -45,7 +45,7 @@ AWS SAM provisions the HTTP API, Lambda function, least-privilege basic logging 
 
 ## Local development
 
-Prerequisites: Python 3.12, Node.js 18 or newer, npm, and AWS SAM CLI for a local HTTP endpoint. SAM local also needs a Docker-compatible runtime; the deployed architecture does not use containers.
+Prerequisites: Python 3.12, Node.js 18 or newer, npm, and AWS SAM CLI for a local HTTP endpoint. SAM local needs a Docker-compatible runtime. The deployed application uses Lambda without containers.
 
 Backend setup and tests:
 
@@ -83,7 +83,7 @@ sam validate --lint --template infrastructure/template.yaml
 sam build --template infrastructure/template.yaml
 ```
 
-The frontend build runs TypeScript checking before Vite's production bundle. The backend suite covers valid and malformed JSON, Unicode byte counts, formatting, minification, every supported repair, unsafe repair refusal, all four AWS event validators, additional-field tolerance, JSON Schema behavior, input limits, Lambda responses, and the two demo scenarios. The same checks run publicly in [GitHub Actions](.github/workflows/ci.yml) on pushes and pull requests.
+The frontend build runs TypeScript checking before Vite creates the production bundle. Backend tests cover JSON operations, every supported repair, all four AWS event validators, JSON Schema behavior, input limits, Lambda responses, and both demo scenarios. They also test Unicode byte counts, unsafe repair refusal, and additional AWS event fields. The same checks run publicly in [GitHub Actions](.github/workflows/ci.yml) on pushes and pull requests.
 
 ## Deploy the backend with AWS SAM
 
@@ -99,7 +99,7 @@ During the guided deployment:
 
 - choose a stack name such as `payload-doctor`
 - choose the target AWS Region
-- set `AllowedOrigins` to the exact comma-separated frontend origins, without spaces—for example `http://localhost:5173,https://main.example.amplifyapp.com`
+- set `AllowedOrigins` to the exact comma-separated frontend origins without spaces, for example: `http://localhost:5173,https://main.example.amplifyapp.com`
 - allow SAM to create the IAM role
 - save the configuration if desired (local `samconfig.toml` is gitignored)
 
@@ -134,7 +134,7 @@ sam logs --stack-name payload-doctor --name AnalyzerFunction --tail
 
 8. Confirm the browser preflight and `POST /analyze` succeed from the Amplify domain.
 
-The frontend environment variables are public build-time configuration, not secrets. Never place AWS credentials in them.
+The frontend exposes these environment variables at build time. Do not place secrets or AWS credentials in them.
 
 ## Environment variables
 
@@ -152,13 +152,13 @@ The Lambda needs no application secrets or runtime environment variables.
 - Raw payloads and schemas are never intentionally logged.
 - CloudWatch application logs contain request ID, operation, payload type, UTF-8 payload size, duration, outcome, and failure category only.
 - Payload content is limited to 1 MiB; schema content is limited to 256 KiB in both UI and Lambda.
-- Input is parsed as data only. The backend performs no evaluation, execution, shell calls, dynamic imports, or input-derived filesystem writes.
+- The backend parses input as data. It does not evaluate or execute input, call a shell, load dynamic imports, or write to input-derived filesystem paths.
 - JSON Schema references resolve only within the supplied schema; remote `$ref` retrieval is disabled.
 - API Gateway CORS uses an explicit deployment parameter rather than a wildcard.
 - The Lambda role grants only standard CloudWatch log delivery permissions.
-- No payload database, credentials, account system, or browser storage is used.
+- Payload Doctor has no payload database, account system, browser storage, or application credentials.
 
-This public tool cannot determine whether pasted data is sensitive. For strict data-governance environments, deploy it into an approved AWS account and use organization-appropriate API controls.
+This public tool cannot determine whether pasted data is sensitive. Organizations with strict data-governance requirements should deploy it in an approved AWS account and apply their required API controls.
 
 ## Project structure
 
@@ -207,11 +207,11 @@ Operations are `diagnose`, `format`, `minify`, `repair`, and `schema_validate`. 
 - JSON Schemas must bundle referenced definitions; remote `$ref` URLs are not fetched.
 - API Gateway validation targets REST API proxy payload v1.0, rejects HTTP API payload v2.0 explicitly, and permits optional fields.
 - There is no authentication, payload history, sharing, or persistence.
-- Public API throttling is a basic cost guard, not abuse prevention for a high-traffic production service.
+- Public API throttling provides a basic cost guard. It is insufficient as abuse prevention for a high-traffic production service.
 
 ## Future improvements
 
-Only add these when actual usage warrants them: optional API protection with AWS WAF, more AWS event types, richer editor syntax highlighting, and a deployed-endpoint smoke check after release. Authentication, databases, AI repair, and payload history are deliberately out of scope.
+Possible additions, if usage warrants them, are AWS WAF protection, more AWS event types, richer editor syntax highlighting, and a post-release endpoint smoke check. Authentication, databases, AI repair, and payload history remain out of scope.
 
 ## License
 

@@ -22,12 +22,20 @@ def validate(data: Any) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
             )
         ], warnings
 
-    if not any(field in data for field in ("httpMethod", "requestContext", "version")):
+    if "httpMethod" not in data:
         errors.append(
             issue(
-                "MISSING_EVENT_MARKER",
-                "$",
-                "Payload does not contain an API Gateway proxy event marker such as httpMethod, requestContext, or version.",
+                "MISSING_FIELD",
+                "$.httpMethod",
+                "API Gateway REST proxy event must include httpMethod.",
+            )
+        )
+    if "requestContext" not in data:
+        errors.append(
+            issue(
+                "MISSING_FIELD",
+                "$.requestContext",
+                "API Gateway REST proxy event must include requestContext.",
             )
         )
 
@@ -36,6 +44,7 @@ def validate(data: Any) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
         "headers",
         "multiValueHeaders",
         "queryStringParameters",
+        "multiValueQueryStringParameters",
         "pathParameters",
         "stageVariables",
     )
